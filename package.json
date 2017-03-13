@@ -1,0 +1,24 @@
+{
+  "name": "kmeans-iris",
+  "version": "0.0.0",
+  "description": "This is my k-means assignment, applied on iris dataset. Simple webapp with 3D visualization support while iterations.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgurkaynak/kmeans-iris.git"
+  },
+  "keywords": [],
+  "author": "Deniz Gurkaynak <dgurkaynak@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dgurkaynak/kmeans-iris/issues"
+  },
+  "homepage": "https://github.com/dgurkaynak/kmeans-iris#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "plotly.js": "^1.24.2"
+  }
+}

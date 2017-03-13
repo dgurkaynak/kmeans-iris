@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>K-Means on Iris dataset</title>
+    <meta name="author" content="Deniz Gurkaynak">
+
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <div id="visualization" style="width: calc(100% - 170px); height: 100%;"></div>
+    <div id="controls">
+        <div class="heading">Visualization</div>
+        <div class="content">
+            <label>X Axis</label>
+            <select id="xAxisSelect">
+                <option value="0" selected>Sepal length</option>
+                <option value="1">Sepal width</option>
+                <option value="2">Petal length</option>
+                <option value="3">Petal width</option>
+            </select>
+            <label>Y Axis</label>
+            <select id="yAxisSelect">
+                <option value="0">Sepal length</option>
+                <option value="1" selected>Sepal width</option>
+                <option value="2">Petal length</option>
+                <option value="3">Petal width</option>
+            </select>
+            <label>Z Axis</label>
+            <select id="zAxisSelect">
+                <option value="0">Sepal length</option>
+                <option value="1">Sepal width</option>
+                <option value="2" selected>Petal length</option>
+                <option value="3">Petal width</option>
+            </select>
+        </div>
+
+        <div class="heading">Actions</div>
+        <div class="content">
+            <button id="reset">Reset (Randomize)</button>
+            <button id="iterate">Iterate One Step</button>
+            <button id="run">Run</button>
+        </div>
+
+        <div class="heading">Result</div>
+        <div id="result" class="content"></div>
+    </div>
+
+    <script src="../node_modules/plotly.js/dist/plotly.min.js"></script>
+    <script src="../node_modules/lodash/lodash.min.js"></script>
+    <script src="kmeans.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
