@@ -2,7 +2,8 @@
 <head>
     <meta charset="utf-8">
 
-    <title>K-Means on Iris dataset</title>
+    <title>K-Means Visualization</title>
+    <meta name="description" content="A web-app that runs and visualizes k-means algorithm on iris dataset/">
     <meta name="author" content="Deniz Gurkaynak">
 
     <style>#controls #search,#controls #searchStep,#controls #searchStop{color:#fff;line-height:150%;margin:1px 0}body,html{margin:0;padding:0;height:100%;font-family:Arial,Helvetica,sans-serif}#controls{position:absolute;width:170px;top:0;left:0;bottom:0;overflow-y:auto}#controls button,select{width:100%}#controls input[type=number]{width:97%}#controls .heading{background:#333;color:#fff;font-weight:700;text-align:center;line-height:150%}#controls label{display:block;background:#fff;color:#333;text-align:left;line-height:150%;font-size:12px;font-weight:800}#controls #search{width:67%;display:inline-block;background:#9c0;border:0;border-radius:3px}#controls #searchStop{width:30%;display:inline-block;background:#f66;border:0;border-radius:3px}#controls #searchStep{width:100%;background:#ffb366;border:0;border-radius:3px}#controls .content{margin:5px}#visualization{position:absolute;left:170px;top:0}</style>
@@ -264,6 +265,30 @@ var n=this.__index__>=this.__values__.length;return{done:n,value:n?F:this.__valu
     </script>
     <script>
         function reset(){kmeans=KMeans({data:data,k:3}),log(),draw()}function iterate(){kmeans=KMeans.iterate(kmeans),log(),draw()}function run(){KMeans.runAnimation(kmeans,500,function(e,t){e&&console.log("ENDED"),kmeans=t,log(),draw()})}function draw(){kmeans&&(plotlyData[0].x=unpack(kmeans.data,xAxisIndex),plotlyData[0].y=unpack(kmeans.data,yAxisIndex),plotlyData[0].z=unpack(kmeans.data,zAxisIndex),plotlyData[1].x=unpack(kmeans.centeroids,xAxisIndex),plotlyData[1].y=unpack(kmeans.centeroids,yAxisIndex),plotlyData[1].z=unpack(kmeans.centeroids,zAxisIndex),plotlyData[2].x=unpack(kmeans.classes[0],xAxisIndex),plotlyData[2].y=unpack(kmeans.classes[0],yAxisIndex),plotlyData[2].z=unpack(kmeans.classes[0],zAxisIndex),plotlyData[3].x=unpack(kmeans.classes[1],xAxisIndex),plotlyData[3].y=unpack(kmeans.classes[1],yAxisIndex),plotlyData[3].z=unpack(kmeans.classes[1],zAxisIndex),plotlyData[4].x=unpack(kmeans.classes[2],xAxisIndex),plotlyData[4].y=unpack(kmeans.classes[2],yAxisIndex),plotlyData[4].z=unpack(kmeans.classes[2],zAxisIndex),plotlyInited?Plotly.redraw("visualization"):(Plotly.newPlot("visualization",plotlyData,plotlyLayout,{displayModeBar:!1}),plotlyInited=!0))}function log(){resultElement.innerHTML="Iteration: "+kmeans.iteration+"<br/><br/>Class #1: "+kmeans.classes[0].length+"<br/>Class #2: "+kmeans.classes[1].length+"<br/>Class #3: "+kmeans.classes[2].length+"<br/>"}function unpack(e,t){return e.map(function(e){return e[t]})}var data=[[5.1,3.5,1.4,.2],[4.9,3,1.4,.2],[4.7,3.2,1.3,.2],[4.6,3.1,1.5,.2],[5,3.6,1.4,.2],[5.4,3.9,1.7,.4],[4.6,3.4,1.4,.3],[5,3.4,1.5,.2],[4.4,2.9,1.4,.2],[4.9,3.1,1.5,.1],[5.4,3.7,1.5,.2],[4.8,3.4,1.6,.2],[4.8,3,1.4,.1],[4.3,3,1.1,.1],[5.8,4,1.2,.2],[5.7,4.4,1.5,.4],[5.4,3.9,1.3,.4],[5.1,3.5,1.4,.3],[5.7,3.8,1.7,.3],[5.1,3.8,1.5,.3],[5.4,3.4,1.7,.2],[5.1,3.7,1.5,.4],[4.6,3.6,1,.2],[5.1,3.3,1.7,.5],[4.8,3.4,1.9,.2],[5,3,1.6,.2],[5,3.4,1.6,.4],[5.2,3.5,1.5,.2],[5.2,3.4,1.4,.2],[4.7,3.2,1.6,.2],[4.8,3.1,1.6,.2],[5.4,3.4,1.5,.4],[5.2,4.1,1.5,.1],[5.5,4.2,1.4,.2],[4.9,3.1,1.5,.1],[5,3.2,1.2,.2],[5.5,3.5,1.3,.2],[4.9,3.1,1.5,.1],[4.4,3,1.3,.2],[5.1,3.4,1.5,.2],[5,3.5,1.3,.3],[4.5,2.3,1.3,.3],[4.4,3.2,1.3,.2],[5,3.5,1.6,.6],[5.1,3.8,1.9,.4],[4.8,3,1.4,.3],[5.1,3.8,1.6,.2],[4.6,3.2,1.4,.2],[5.3,3.7,1.5,.2],[5,3.3,1.4,.2],[7,3.2,4.7,1.4],[6.4,3.2,4.5,1.5],[6.9,3.1,4.9,1.5],[5.5,2.3,4,1.3],[6.5,2.8,4.6,1.5],[5.7,2.8,4.5,1.3],[6.3,3.3,4.7,1.6],[4.9,2.4,3.3,1],[6.6,2.9,4.6,1.3],[5.2,2.7,3.9,1.4],[5,2,3.5,1],[5.9,3,4.2,1.5],[6,2.2,4,1],[6.1,2.9,4.7,1.4],[5.6,2.9,3.6,1.3],[6.7,3.1,4.4,1.4],[5.6,3,4.5,1.5],[5.8,2.7,4.1,1],[6.2,2.2,4.5,1.5],[5.6,2.5,3.9,1.1],[5.9,3.2,4.8,1.8],[6.1,2.8,4,1.3],[6.3,2.5,4.9,1.5],[6.1,2.8,4.7,1.2],[6.4,2.9,4.3,1.3],[6.6,3,4.4,1.4],[6.8,2.8,4.8,1.4],[6.7,3,5,1.7],[6,2.9,4.5,1.5],[5.7,2.6,3.5,1],[5.5,2.4,3.8,1.1],[5.5,2.4,3.7,1],[5.8,2.7,3.9,1.2],[6,2.7,5.1,1.6],[5.4,3,4.5,1.5],[6,3.4,4.5,1.6],[6.7,3.1,4.7,1.5],[6.3,2.3,4.4,1.3],[5.6,3,4.1,1.3],[5.5,2.5,4,1.3],[5.5,2.6,4.4,1.2],[6.1,3,4.6,1.4],[5.8,2.6,4,1.2],[5,2.3,3.3,1],[5.6,2.7,4.2,1.3],[5.7,3,4.2,1.2],[5.7,2.9,4.2,1.3],[6.2,2.9,4.3,1.3],[5.1,2.5,3,1.1],[5.7,2.8,4.1,1.3],[6.3,3.3,6,2.5],[5.8,2.7,5.1,1.9],[7.1,3,5.9,2.1],[6.3,2.9,5.6,1.8],[6.5,3,5.8,2.2],[7.6,3,6.6,2.1],[4.9,2.5,4.5,1.7],[7.3,2.9,6.3,1.8],[6.7,2.5,5.8,1.8],[7.2,3.6,6.1,2.5],[6.5,3.2,5.1,2],[6.4,2.7,5.3,1.9],[6.8,3,5.5,2.1],[5.7,2.5,5,2],[5.8,2.8,5.1,2.4],[6.4,3.2,5.3,2.3],[6.5,3,5.5,1.8],[7.7,3.8,6.7,2.2],[7.7,2.6,6.9,2.3],[6,2.2,5,1.5],[6.9,3.2,5.7,2.3],[5.6,2.8,4.9,2],[7.7,2.8,6.7,2],[6.3,2.7,4.9,1.8],[6.7,3.3,5.7,2.1],[7.2,3.2,6,1.8],[6.2,2.8,4.8,1.8],[6.1,3,4.9,1.8],[6.4,2.8,5.6,2.1],[7.2,3,5.8,1.6],[7.4,2.8,6.1,1.9],[7.9,3.8,6.4,2],[6.4,2.8,5.6,2.2],[6.3,2.8,5.1,1.5],[6.1,2.6,5.6,1.4],[7.7,3,6.1,2.3],[6.3,3.4,5.6,2.4],[6.4,3.1,5.5,1.8],[6,3,4.8,1.8],[6.9,3.1,5.4,2.1],[6.7,3.1,5.6,2.4],[6.9,3.1,5.1,2.3],[5.8,2.7,5.1,1.9],[6.8,3.2,5.9,2.3],[6.7,3.3,5.7,2.5],[6.7,3,5.2,2.3],[6.3,2.5,5,1.9],[6.5,3,5.2,2],[6.2,3.4,5.4,2.3],[5.9,3,5.1,1.8]],kmeans=null,xAxisIndex=0,yAxisIndex=1,zAxisIndex=2,plotlyLayout={autosize:!0,scene:{aspectratio:{x:1,y:1,z:1},camera:{center:{x:0,y:0,z:0},eye:{x:1.25,y:1.25,z:1.25},up:{x:0,y:0,z:1}},xaxis:{type:"linear"},yaxis:{type:"linear"},zaxis:{type:"linear"}}},plotlyData=[{x:[],y:[],z:[],mode:"markers",type:"scatter3d",name:"points",marker:{color:"rgb(23, 190, 207)",size:2}},{x:[],y:[],z:[],mode:"markers",type:"scatter3d",name:"centeroids",marker:{color:"rgb(255, 10, 10)",size:3}},{alphahull:0,opacity:.1,type:"mesh3d",x:[],y:[],z:[]},{alphahull:0,opacity:.1,type:"mesh3d",x:[],y:[],z:[]},{alphahull:0,opacity:.1,type:"mesh3d",x:[],y:[],z:[]}],plotlyInited=!1,xAxisSelect=document.getElementById("xAxisSelect"),yAxisSelect=document.getElementById("yAxisSelect"),zAxisSelect=document.getElementById("zAxisSelect"),resetButton=document.getElementById("reset"),iterateButton=document.getElementById("iterate"),runButton=document.getElementById("run"),resultElement=document.getElementById("result");reset(),xAxisSelect.addEventListener("change",function(){xAxisIndex=parseInt(xAxisSelect.value,10),draw()}),yAxisSelect.addEventListener("change",function(){yAxisIndex=parseInt(xAxisSelect.value,10),draw()}),zAxisSelect.addEventListener("change",function(){xAxisIndex=parseInt(zAxisSelect.value,10),draw()}),resetButton.addEventListener("click",reset),iterateButton.addEventListener("click",iterate),runButton.addEventListener("click",run);
+    </script>
+
+    <script type='text/javascript'>
+        //some default pre init
+        var Countly = Countly || {};
+        Countly.q = Countly.q || [];
+
+        //provide countly initialization parameters
+        Countly.app_key = 'ce247ed457ee5fb7afe7708ff72ae12fe195a8d4';
+        Countly.url = 'https://countly.deniz.co';
+
+        Countly.q.push(['track_sessions']);
+        Countly.q.push(['track_pageview']);
+        Countly.q.push(['track_errors']);
+
+        //load countly script asynchronously
+        (function() {
+        var cly = document.createElement('script'); cly.type = 'text/javascript';
+        cly.async = true;
+        //enter url of script here
+        cly.src = 'https://countly.deniz.co/sdk/web/countly.min.js';
+        cly.onload = function(){Countly.init()};
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);
+        })();
     </script>
 </body>
 </html>

@@ -2,7 +2,8 @@
 <head>
     <meta charset="utf-8">
 
-    <title>K-Means on Iris dataset</title>
+    <title>K-Means Visualization</title>
+    <meta name="description" content="A web-app that runs and visualizes k-means algorithm on iris dataset/">
     <meta name="author" content="Deniz Gurkaynak">
 
     <link rel="stylesheet" href="app.css">
@@ -51,5 +52,29 @@
     <script src="../node_modules/lodash/lodash.min.js"></script>
     <script src="kmeans.js"></script>
     <script src="app.js"></script>
+
+    <script type='text/javascript'>
+        //some default pre init
+        var Countly = Countly || {};
+        Countly.q = Countly.q || [];
+
+        //provide countly initialization parameters
+        Countly.app_key = 'ce247ed457ee5fb7afe7708ff72ae12fe195a8d4';
+        Countly.url = 'https://countly.deniz.co';
+
+        Countly.q.push(['track_sessions']);
+        Countly.q.push(['track_pageview']);
+        Countly.q.push(['track_errors']);
+
+        //load countly script asynchronously
+        (function() {
+           var cly = document.createElement('script'); cly.type = 'text/javascript';
+           cly.async = true;
+           //enter url of script here
+           cly.src = 'https://countly.deniz.co/sdk/web/countly.min.js';
+           cly.onload = function(){Countly.init()};
+           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);
+        })();
+    </script>
 </body>
 </html>

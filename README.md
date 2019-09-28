@@ -1,8 +1,8 @@
 # kmeans-iris
 
 This is my k-means assignment, applied on iris dataset.
-Simple webapp with 3D visualization support while iterations.
+Simple web-app featuring 3D visualization while iterations.
 
-[See the app](https://dgurkaynak.github.io/kmeans-iris/)
+Available on: [https://deniz.co/kmeans-iris](https://deniz.co/kmeans-iris)
 
-![Screenshot of the webapp](./ss.png)
+![Screenshot of the web-app](./ss.png)
