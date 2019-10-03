@@ -5,7 +5,15 @@ var yAxisIndex = 1;
 var zAxisIndex = 2;
 var plotlyLayout = {
     autosize: true,
-    // height: 480,
+    showlegend: false,
+    margin: {
+        l: 0,
+        r: 0,
+        b: 0,
+        t: 0,
+        pad: 0
+    },
+
     scene: {
         aspectratio: {
             x: 1,
@@ -13,37 +21,26 @@ var plotlyLayout = {
             z: 1
         },
         camera: {
-            center: {
-                x: 0,
-                y: 0,
-                z: 0
-            },
-            eye: {
-                x: 1.25,
-                y: 1.25,
-                z: 1.25
-            },
-            up: {
-                x: 0,
-                y: 0,
-                z: 1
-            }
+            center: { x: 0, y: 0, z: 0 },
+            eye: { x: 1.5, y: 1.5, z: 0.15 },
+            up: { x: 0, y: 0, z: 1 }
         },
         xaxis: {
+            title: 'Sepal length',
             type: 'linear',
-            // zeroline: false
+            zeroline: false
         },
         yaxis: {
+            title: 'Sepal width',
             type: 'linear',
-            // zeroline: false
+            zeroline: false
         },
         zaxis: {
+            title: 'Petal length',
             type: 'linear',
-            // zeroline: false
+            zeroline: false
         }
     }
-    // title: '3d point clustering'
-    // width: 477
 };
 var plotlyData = [
     {
@@ -162,7 +159,10 @@ function draw() {
     if (plotlyInited) {
         Plotly.redraw('visualization');
     } else {
-        Plotly.newPlot('visualization', plotlyData, plotlyLayout, {displayModeBar: false});
+        Plotly.newPlot('visualization', plotlyData, plotlyLayout, {
+            displayModeBar: false,
+            responsive: true,
+        });
         plotlyInited = true;
     }
 }

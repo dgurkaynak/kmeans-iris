@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>K-Means Visualization</title>
     <meta name="description" content="A web-app that runs and visualizes k-means algorithm on iris dataset.">
@@ -10,8 +11,20 @@
 </head>
 
 <body>
-    <div id="visualization" style="width: calc(100% - 170px); height: 100%;"></div>
-    <div id="controls">
+    <div id="visualization"></div>
+    <div id="legend">
+        <div class="legend-item"><span style="color: rgb(23, 190, 207)">•</span> Points</div>
+        <div class="legend-item"><span style="color: rgb(255, 10, 10);">•</span> Centeroids</div>
+    </div>
+    <div id="result" class="content">Loading...</div>
+    <div id="actions">
+        <button id="reset">Reset (Randomize)</button>
+        <button id="iterate" style="background: #ffb366; color: #fff;">Iterate One Step</button>
+        <button id="run" style="background: #99cc00; color: #fff;">Run</button>
+    </div>
+
+    <!-- Legacy -->
+    <div id="controls" style="display: none;">
         <div class="heading">Visualization</div>
         <div class="content">
             <label>X Axis</label>
@@ -36,16 +49,6 @@
                 <option value="3">Petal width</option>
             </select>
         </div>
-
-        <div class="heading">Actions</div>
-        <div class="content">
-            <button id="reset">Reset (Randomize)</button>
-            <button id="iterate">Iterate One Step</button>
-            <button id="run">Run</button>
-        </div>
-
-        <div class="heading">Result</div>
-        <div id="result" class="content"></div>
     </div>
 
     <script src="../node_modules/plotly.js/dist/plotly.min.js"></script>
