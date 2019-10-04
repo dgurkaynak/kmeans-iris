@@ -88,7 +88,7 @@ html, body {
 
 #result {
     position: absolute;
-    top: 0;
+    top: 6.5em;
     left: 0;
     background: #fff;
     font-size: 0.8em;
@@ -98,7 +98,7 @@ html, body {
 #actions {
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
 }
 
 #actions button {
