@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/dgurkaynak/kmeans-iris#readme",
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "plotly.js": "^1.49.5"
   }
 }
