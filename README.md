@@ -10,6 +10,5 @@ Available on: [https://deniz.co/kmeans-iris](https://deniz.co/kmeans-iris)
 ## Installation & Running
 
 - Clone the repo
-- Install the dependencies with `npm i`
-- Open `src/index.html` in your favorite browser
+- Open `index.html` in your favorite browser
 
